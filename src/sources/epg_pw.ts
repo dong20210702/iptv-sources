@@ -44,24 +44,24 @@ export const epg_pw_sources: TSources = [
     url: 'https://epg.pw/test_channels_china.m3u',
     filter: epg_pw_filter,
   },
-  {
-    name: 'epg.pw China National',
-    f_name: 'cn_n',
-    url: 'https://epg.pw/test_channels_china_national.m3u',
-    filter: epg_pw_filter,
-  },
-  {
-    name: 'epg.pw China Country',
-    f_name: 'cn_c',
-    url: 'https://epg.pw/test_channels_china_country.m3u',
-    filter: epg_pw_filter,
-  },
-  {
-    name: 'epg.pw China Province',
-    f_name: 'cn_p',
-    url: 'https://epg.pw/test_channels_china_province.m3u',
-    filter: epg_pw_filter,
-  },
+  // {
+  //   name: 'epg.pw China National',
+  //   f_name: 'cn_n',
+  //   url: 'https://epg.pw/test_channels_china_national.m3u',
+  //   filter: epg_pw_filter,
+  // },
+  // {
+  //   name: 'epg.pw China Country',
+  //   f_name: 'cn_c',
+  //   url: 'https://epg.pw/test_channels_china_country.m3u',
+  //   filter: epg_pw_filter,
+  // },
+  // {
+  //   name: 'epg.pw China Province',
+  //   f_name: 'cn_p',
+  //   url: 'https://epg.pw/test_channels_china_province.m3u',
+  //   filter: epg_pw_filter,
+  // },
   {
     name: 'epg.pw All',
     f_name: 'all',
