@@ -81,8 +81,7 @@
 1. `pnpm install`  
 2. `pnpm build`（打包 TS 等到 `dist/`）  
 3. `pnpm m3u`（用编译产物抓取并写入 `m3u/`）  
-4. `pnpm matrix`（生成镜像站相关输出）  
-5. **发布**：根据是否配置了 Cloudflare 凭据，走下面两种之一。
+4. **发布**：根据是否配置了 Cloudflare 凭据，走下面两种之一。
 
 ### 方式 A：直连上传（推荐与「纯静态上传」一致）
 

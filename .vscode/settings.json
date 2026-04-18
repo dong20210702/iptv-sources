@@ -2,5 +2,12 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit",
         "source.organizeImports": "explicit"
-    }
+    },
+    "cSpell.words": [
+        "epgs",
+        "okhttp",
+        "tvbox",
+        "whyun",
+        "XMLTV"
+    ]
 }

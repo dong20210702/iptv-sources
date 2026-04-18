@@ -11,7 +11,7 @@
 import { mkdir, writeFile } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { writeEpgJsonFromXml } from '../file';
+// import { writeEpgJsonFromXml } from '../file';
 import type { EpgChannelJson } from './parser';
 import { formatHourMinute, parseXmltvTimestamp } from './time';
 import {
@@ -222,8 +222,8 @@ export async function buildEpgPwXml(batchSize = 10, delayMs = 300): Promise<stri
   const fullXml = `<?xml version="1.0" encoding="UTF-8"?>\n${tvBody}`;
 
   // TVBox EPG：与 docs/EPG.md 一致，写入 epg/epg_pw/{date}/{name}.json
-  console.log('[EPG.PW] Writing TVBox EPG JSON files ...');
-  writeEpgJsonFromXml('epg_pw', fullXml);
+  // console.log('[EPG.PW] Writing TVBox EPG JSON files ...');
+  // writeEpgJsonFromXml('epg_pw', fullXml);
 
   return fullXml;
 }

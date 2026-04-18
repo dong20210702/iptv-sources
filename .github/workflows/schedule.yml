@@ -48,7 +48,6 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm m3u
-      - run: pnpm matrix
 
       - name: Publish m3u (Cloudflare direct upload or empty commit)
         env:

@@ -112,27 +112,6 @@ https://your-domain.pages.dev/epg/epg_pw/{date}/{name}.json
 
 把 `your-domain.pages.dev` 替换成实际可用的域名就行。频道名需与 JSON 文件名一致，否则 TVBox 无法匹配到对应文件。
 
-如果你用的是 TVBox 的 JSON 配置格式，加一个 `epg` 字段：
-
-```json
-{
-  "lives": [
-    {
-      "group": "Channels",
-      "channels": [
-        {
-          "name": "CCTV1",
-          "urls": ["http://your-iptv-source-url"]
-        }
-      ]
-    }
-  ],
-  "epg": "https://your-domain.pages.dev/epg/51zmt/{date}/{name}.json"
-}
-```
-
-保存，重启 TVBox，进入直播频道后就能看到节目预告了。
-
 ### 自己部署一套
 
 如果你想完全掌控自己的 EPG 服务，也很简单：
