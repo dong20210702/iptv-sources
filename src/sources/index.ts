@@ -34,9 +34,9 @@ export const sources = [
   // ...joevess_iptv_sources,
   // ...iptv_org_sources,
   // ...iptv_org_stream_sources,
+  ...hotel_tvn_sources,
   ...epg_pw_sources,
   // ...qwerttvv_bj_iptv_sources,
   ...youhun_sources,
   // ...zbds_sources,
-  ...hotel_tvn_sources,
 ];
