@@ -1,7 +1,7 @@
 name: Auto Sync Fork Only
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: "0 */2 * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,10 +12,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Sync upstream, keep workflows
+      - name: Sync upstream, keep workflows (Smart Sync)
         run: |
           git remote add upstream https://github.com/whyun-pages/iptv-sources.git
           git fetch upstream
+          
+          # 核心逻辑：对比本地和上游的最新提交哈希
+          LOCAL=$(git rev-parse HEAD)
+          UPSTREAM=$(git rev-parse upstream/main)
+          
+          if [ "$LOCAL" = "$UPSTREAM" ]; then
+              echo "✅ 上游没有更新，跳过同步..."
+              exit 0
+          fi
+          
+          echo "🔄 检测到上游更新，开始同步..."
           
           # 备份 workflows
           mkdir -p /tmp/my_workflows
@@ -29,8 +40,9 @@ jobs:
           mkdir -p .github/workflows
           cp -r /tmp/my_workflows/* .github/workflows/ 2>/dev/null || true
           
+          # 提交并推送
           git add .github/workflows/
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: sync upstream and keep workflows" || true
+          git commit -m "chore: sync upstream" || true
           git push origin main --force
