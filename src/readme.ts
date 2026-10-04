@@ -9,6 +9,8 @@ import {
   getChinaIptvFileName,
   getChinaIptvOperatorLogo,
   handle_m3u,
+  IPTV_PROXY_PORT,
+  LAN_IP_PREFIXES,
   parseChinaIptvFileName,
   type TChinaIptvOperator,
   type TChinaIptvType,
@@ -27,7 +29,7 @@ export type TREADMESourceResult = [status: string, channelCount: number | undefi
 export type TREADMESourceResults = TREADMESourceResult[][];
 export type TREADMEEPGSources = TEPGSource[];
 
-const LAN_IP_FILENAME_SUFFIX = /_(192_168_\d+|10_0_0)$/;
+const LAN_IP_FILENAME_SUFFIX = /_(\d{1,3}_\d{1,3}_\d{1,3})$/;
 
 const getLanIpDetails = (sourceGroup: IREADMESource[]) =>
   sourceGroup
@@ -110,9 +112,15 @@ export const renderSourceRows = (sources: TREADMESources, sourcesResults: TREADM
 
 const REPO_DOCS_URL = 'https://github.com/yunnysunny/iptv-sources/blob/main/docs';
 
+const describeGateways = (lanIpPrefixes: string[]) => {
+  const gateways = lanIpPrefixes.map((prefix) => `${prefix}.1`);
+  return gateways.length <= 16 ? gateways.join('、') : `共 ${gateways.length} 个网关`;
+};
+
 export const renderIptvRegionPage = (
   sources: TREADMESources,
-  sourcesResults: TREADMESourceResults
+  sourcesResults: TREADMESourceResults,
+  { lanIpPrefixes = LAN_IP_PREFIXES, proxyPort = IPTV_PROXY_PORT } = {}
 ) => {
   // f_name -> 频道数（undefined 表示拉取失败）
   const counts = new Map<string, number | undefined>();
@@ -176,7 +184,7 @@ export const renderIptvRegionPage = (
 
 数据来自 [xisohi/CHINA-IPTV](https://github.com/xisohi/CHINA-IPTV)，按省份和运营商整理。
 
-- 🛰️**组播**：原始地址为 \`rtp://\`，需要在 IPTV 网络内通过 udpxy / rtp2httpd 转发后播放。「🏠代理」页面为常见网关（192.168.0.1 ~ 192.168.10.1、192.168.123.1、10.0.0.1）生成了 \`http://<网关>:23234/rtp/...\` 格式的地址，配置方法见 [OpenWrt udpxy 配置指南](${REPO_DOCS_URL}/openwrt-updpxy.md)、[OpenWrt igmpproxy 配置指南](${REPO_DOCS_URL}/blog-operator-iptv-igmpproxy.md)。
+- 🛰️**组播**：原始地址为 \`rtp://\`，需要在 IPTV 网络内通过 udpxy / rtp2httpd 转发后播放。「🏠代理」页面为以下网关（${describeGateways(lanIpPrefixes)}）生成了 \`http://<网关>:${proxyPort}/rtp/...\` 格式的地址，配置方法见 [OpenWrt udpxy 配置指南](${REPO_DOCS_URL}/openwrt-updpxy.md)、[OpenWrt igmpproxy 配置指南](${REPO_DOCS_URL}/blog-operator-iptv-igmpproxy.md)。
 - 🔗**单播**：一般只能在对应运营商的 IPTV 网络内访问。
 
 ${renderTable('multicast')}

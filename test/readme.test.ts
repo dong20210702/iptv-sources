@@ -124,4 +124,21 @@ describe('renderIptvRegionPage', () => {
   it('ignores non CHINA-IPTV sources', () => {
     expect(markdown).not.toContain('single');
   });
+
+  it('describes the configured gateways and proxy port', () => {
+    expect(markdown).toContain('192.168.0.1、192.168.1.1');
+    expect(markdown).toContain('`http://<网关>:23234/rtp/...`');
+
+    const custom = renderIptvRegionPage([], [], {
+      lanIpPrefixes: ['172.16.0', '172.16.1'],
+      proxyPort: 4022,
+    });
+    expect(custom).toContain('以下网关（172.16.0.1、172.16.1.1）');
+    expect(custom).toContain('`http://<网关>:4022/rtp/...`');
+
+    const many = renderIptvRegionPage([], [], {
+      lanIpPrefixes: Array.from({ length: 20 }, (_, i) => `192.168.${i}`),
+    });
+    expect(many).toContain('以下网关（共 20 个网关）');
+  });
 });
