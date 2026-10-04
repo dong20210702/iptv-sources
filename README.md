@@ -19,7 +19,7 @@
 | [epg.pw](https://epg.pw/test_channel_page.html) | 全球频道 |
 | [youhun](https://github.com/HerbertHe/youhun) | 国内频道 |
 | [hotel_tvn](https://github.com/HerbertHe/hotel_tvn) | 酒店源 |
-| [qwerttvv/Beijing-IPTV](https://github.com/qwerttvv/Beijing-IPTV) | 北京联通、移动 IPTV 直播源；组播源转发配置见 [OpenWrt udpxy 配置指南](docs/openwrt-updpxy.md)、[OpenWrt igmpproxy 配置指南](docs/blog-operator-iptv-igmpproxy.md) |
+| [xisohi/CHINA-IPTV](https://github.com/xisohi/CHINA-IPTV) | 全国各省电信、联通、移动、广电 IPTV 组播 / 单播源，站点上见「IPTV 分地区列表」页；组播源转发配置见 [OpenWrt udpxy 配置指南](docs/openwrt-updpxy.md)、[OpenWrt igmpproxy 配置指南](docs/blog-operator-iptv-igmpproxy.md) |
 
 
 ## 点播源
