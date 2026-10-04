@@ -1,18 +1,1 @@
-# 旧 qwerttvv/Beijing-IPTV 地址兼容，必须放在通用 /list/*.list 规则之前
-/q_bj_iptv_unicom_m.m3u /iptv/multicast/beijing/unicom.m3u 200
-/q_bj_iptv_mobile_m.m3u /iptv/multicast/beijing/mobile.m3u 200
-/txt/q_bj_iptv_unicom_m.txt /txt/iptv/multicast/beijing/unicom.txt 200
-/txt/q_bj_iptv_mobile_m.txt /txt/iptv/multicast/beijing/mobile.txt 200
-/list/q_bj_iptv_unicom_m.list /list/iptv/multicast/beijing/unicom.list 301
-/list/q_bj_iptv_mobile_m.list /list/iptv/multicast/beijing/mobile.list 301
-/list/bj_iptv/q_bj_iptv_unicom.more.list /list/iptv/multicast/beijing/unicom.more.list 301
-/list/bj_iptv/q_bj_iptv_mobile.more.list /list/iptv/multicast/beijing/mobile.more.list 301
-# 旧的局域网网段版本（新版只保留常见网段，其余网段会 404）
-/bj_iptv/q_bj_iptv_unicom_* /iptv/multicast/beijing/unicom_:splat 200
-/bj_iptv/q_bj_iptv_mobile_* /iptv/multicast/beijing/mobile_:splat 200
-/txt/bj_iptv/q_bj_iptv_unicom_* /txt/iptv/multicast/beijing/unicom_:splat 200
-/txt/bj_iptv/q_bj_iptv_mobile_* /txt/iptv/multicast/beijing/mobile_:splat 200
-/list/bj_iptv/q_bj_iptv_unicom_* /list/iptv/multicast/beijing/unicom_:splat 301
-/list/bj_iptv/q_bj_iptv_mobile_* /list/iptv/multicast/beijing/mobile_:splat 301
-
 /list/*.list / 200

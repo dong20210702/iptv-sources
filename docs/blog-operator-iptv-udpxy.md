@@ -8,7 +8,7 @@
 
 > 本次接入的频道数据来自 [qwerttvv/Beijing-IPTV](https://github.com/qwerttvv/Beijing-IPTV)，目前包含北京联通、北京移动及其组播版本。
 
-> **更新**：数据源已换成 [xisohi/CHINA-IPTV](https://github.com/xisohi/CHINA-IPTV)，覆盖全国各省电信、联通、移动、广电的组播和单播源，统一放在站点的 `iptv/` 目录下，入口为首页的「IPTV 分地区列表」。为了控制文件数量，组播代理版本只为常见网关生成：`192.168.0.1` ~ `192.168.10.1`、`192.168.123.1`、`10.0.0.1`，共 13 个；单播源不生成代理版本。下文中「257 份」「`bj_iptv/` 目录」等描述为旧版本的实现。旧的 `q_bj_iptv_unicom_m.m3u`、`q_bj_iptv_mobile_m.m3u` 以及 `bj_iptv/` 下上述 13 个网段的地址，通过 `_redirects` 映射到新路径，仍然可用。
+> **更新**：新增了 [xisohi/CHINA-IPTV](https://github.com/xisohi/CHINA-IPTV) 数据源，覆盖全国各省电信、联通、移动、广电的组播和单播源，统一放在站点的 `iptv/` 目录下，入口为首页的「IPTV 分地区列表」；本文的 qwerttvv/Beijing-IPTV 北京源继续保留。为了控制文件数量，局域网代理版本默认只为常见网关生成：`192.168.0.1` ~ `192.168.10.1`、`192.168.123.1`、`10.0.0.1`，共 13 个，可通过环境变量 `IPTV_PROXY_IP_RANGES`、`IPTV_PROXY_PORT` 调整。下文中「257 份」的描述为旧版本的实现。
 
 ---
 
